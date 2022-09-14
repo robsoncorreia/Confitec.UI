@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Escolaridade } from 'src/app/models/escolaridade.model';
 import { User } from 'src/app/models/user.model';
 import { UsersService } from 'src/app/services/users.service';
 
@@ -20,10 +22,16 @@ export class AddUserComponent implements OnInit {
     escolaridade: 0
   }
 
-  constructor(private usersService: UsersService, private router: Router) { }
+  selected: string = '';
 
-  ngOnInit(): void {
+  escolaridade;
+
+  constructor(private usersService: UsersService, private router: Router) {
+    this.escolaridade = Object.values(Escolaridade);
   }
+
+  ngOnInit(): void {}
+  
   addUser() {
     this.usersService.addUser(this.addUserRequest)
       .subscribe({
@@ -32,5 +40,11 @@ export class AddUserComponent implements OnInit {
           this.router.navigate(['users']);
         }
       });
+  }
+ 
+
+
+  selectChangeHandler (event: any) {
+    this.selected = event.target.value; 
   }
 }

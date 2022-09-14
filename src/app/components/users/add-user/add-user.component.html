@@ -5,25 +5,36 @@
             <form #form="ngForm" (ngSubmit)="addUser()">
                 <div class="mb-3">
                     <label for="primeiroNome" class="form-label">Primeiro Nome</label>
-                    <input type="text" class="form-control" id="primeiroNome" name="primeiroNome" [(ngModel)]="addUserRequest.primeiroNome">
+                    <input type="text" class="form-control" id="primeiroNome" name="primeiroNome"
+                        [(ngModel)]="addUserRequest.primeiroNome">
                 </div>
                 <div class="mb-3">
                     <label for="sobreNome" class="form-label">Segundo Nome</label>
-                    <input type="text" class="form-control" id="sobreNome" name="sobreNome" [(ngModel)]="addUserRequest.sobreNome">
+                    <input type="text" class="form-control" id="sobreNome" name="sobreNome"
+                        [(ngModel)]="addUserRequest.sobreNome">
                 </div>
                 <div class="mb-3">
                     <label for="email" class="form-label">E-mail</label>
-                    <input type="email" class="form-control" id="email" name="email" [(ngModel)]="addUserRequest.email">
+                    <input pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"  type="text" class="form-control" id="email" name="email" [(ngModel)]="addUserRequest.email" ngModel #emailref="ngModel">
+                    <div *ngIf="emailref.errors &&(emailref.touched || emailref.dirty)" class="alert alert-danger">
+                        <div [hidden]="!emailref.errors">
+                            E-mail inválido!
+                        </div>
+                    </div>
                 </div>
                 <div class="mb-3">
                     <label for="dataNascimento" class="form-label">Data de Nascimento</label>
-                    <input type="date" class="form-control" id="dataNascimento" name="dataNascimento"  [(ngModel)]="addUserRequest.dataNascimento">
+                    <input type="date" class="form-control" id="dataNascimento" name="dataNascimento"
+                        [(ngModel)]="addUserRequest.dataNascimento">
                 </div>
+
                 <div class="mb-3">
                     <label for="escolaridade" class="form-label">Escolaridade</label>
-                    <input type="number" class="form-control" id="escolaridade" name="escolaridade" [(ngModel)]="addUserRequest.escolaridade">
+                    <select class="form-select" (change)="selectChangeHandler($event)">
+                        <option *ngFor="let name of escolaridade" [value]="name"> {{name}} </option>
+                    </select>
                 </div>
-                <button type="submit" class="btn btn-primary">Criar</button>
+                <button [disabled]="emailref.errors"  type="submit" class="btn btn-primary">Criar</button>
             </form>
         </div>
     </div>

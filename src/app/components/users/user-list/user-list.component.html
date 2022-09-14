@@ -17,7 +17,7 @@
                 <td>{{user.primeiroNome}}</td>
                 <td>{{user.sobreNome}}</td>
                 <td>{{user.email}}</td>
-                <td>{{user.dataNascimento}}</td>
+                <td>{{user.dataNascimento | date :'dd/MM/yyyy'}}</td>
                 <td>{{user.escolaridade}}</td>
                 <td><a [routerLink]="['/users', 'edit', user.id]">Editar</a></td>
             </tr>

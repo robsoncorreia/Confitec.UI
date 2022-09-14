@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Escolaridade } from 'src/app/models/escolaridade.model';
 import { User } from 'src/app/models/user.model';
 import { UsersService } from 'src/app/services/users.service';
 
@@ -18,8 +19,12 @@ export class EditUserComponent implements OnInit {
     dataNascimento: new Date,
     escolaridade: 0
   }
-
-  constructor(private route: ActivatedRoute, private usersService: UsersService, private router: Router) { }
+  
+  escolaridade ;
+  
+  constructor(private route: ActivatedRoute, private usersService: UsersService, private router: Router) { 
+    this.escolaridade = Object.values(Escolaridade);
+  }
 
   ngOnInit(): void {
     this.route.paramMap.subscribe({
