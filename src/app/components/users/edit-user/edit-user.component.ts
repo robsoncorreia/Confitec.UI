@@ -12,11 +12,11 @@ export class EditUserComponent implements OnInit {
 
   addUserRequest: User = {
     id: 0,
-    firstName: '',
-    lastName: '',
+    primeiroNome: '',
+    sobreNome: '',
     email: '',
-    birthDate: new Date,
-    education: 0
+    dataNascimento: new Date,
+    escolaridade: 0
   }
 
   constructor(private route: ActivatedRoute, private usersService: UsersService, private router: Router) { }

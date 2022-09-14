@@ -14,11 +14,11 @@
         <tbody>
             <tr *ngFor="let user of users">
                 <td>{{user.id}}</td>
-                <td>{{user.firstName}}</td>
-                <td>{{user.lastName}}</td>
+                <td>{{user.primeiroNome}}</td>
+                <td>{{user.sobreNome}}</td>
                 <td>{{user.email}}</td>
-                <td>{{user.birthDate}}</td>
-                <td>{{user.education}}</td>
+                <td>{{user.dataNascimento}}</td>
+                <td>{{user.escolaridade}}</td>
                 <td><a [routerLink]="['/users', 'edit', user.id]">Editar</a></td>
             </tr>
         </tbody>

@@ -5,11 +5,11 @@
             <form #form="ngForm" (ngSubmit)="updateUser()">
                 <div class="mb-3">
                     <label for="fistName" class="form-label">Primeiro Nome</label>
-                    <input type="text" class="form-control" id="fistName" name="fistName" [(ngModel)]="addUserRequest.firstName">
+                    <input type="text" class="form-control" id="fistName" name="fistName" [(ngModel)]="addUserRequest.primeiroNome">
                 </div>
                 <div class="mb-3">
                     <label for="lastName" class="form-label">Segundo Nome</label>
-                    <input type="text" class="form-control" id="lastName" name="lastName" [(ngModel)]="addUserRequest.lastName">
+                    <input type="text" class="form-control" id="lastName" name="lastName" [(ngModel)]="addUserRequest.sobreNome">
                 </div>
                 <div class="mb-3">
                     <label for="email" class="form-label">E-mail</label>
@@ -17,11 +17,11 @@
                 </div>
                 <div class="mb-3">
                     <label for="birthDate" class="form-label">Data de Nascimento</label>
-                    <input type="date" class="form-control" id="birthDate" name="birthDate"  [(ngModel)]="addUserRequest.birthDate">
+                    <input type="date" class="form-control" id="birthDate" name="birthDate"  [(ngModel)]="addUserRequest.dataNascimento">
                 </div>
                 <div class="mb-3">
                     <label for="education" class="form-label">Escolaridade</label>
-                    <input type="number" class="form-control" id="education" name="education" [(ngModel)]="addUserRequest.education">
+                    <input type="number" class="form-control" id="education" name="education" [(ngModel)]="addUserRequest.escolaridade">
                 </div>
                 <button type="submit" class="btn btn-primary">Atualizar</button>
                 <button type="button" class="btn btn-danger mr-5"  (click)="deleteUser(addUserRequest.id)">Apagar</button>
